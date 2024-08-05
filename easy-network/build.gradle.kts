@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
 
     implementation (libs.retrofit)
+    implementation(libs.androidx.lifecycle.livedata.core.ktx)
 
     testImplementation(libs.junit)
 

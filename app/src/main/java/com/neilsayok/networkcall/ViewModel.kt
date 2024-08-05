@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.neilsayok.easy_network.NetworkWrapper.Resource
 import com.neilsayok.easy_network.NetworkWrapper.toLoading
 import com.neilsayok.easy_network.exceptionHandler.ExceptionHandlerFlow
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -26,7 +27,7 @@ class ViewModel : ViewModel() {
             }
         }
 
-        viewModelScope.launch(exceptionHandler) {
+        viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
             testFlow.apply {
                 delay(3000)
                 val apiResp = TestRes("Success")
