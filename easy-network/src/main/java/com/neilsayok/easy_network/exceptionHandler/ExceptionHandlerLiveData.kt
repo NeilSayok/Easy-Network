@@ -20,12 +20,7 @@ fun <T> ExceptionHandlerLiveData(
             livedata.forEach { ld ->
                 ld.apply {
                     postValue(
-                        Resource.Error(
-                            message = "No Internet Connection",
-                            errorData = ErrorData(
-                                code = null, errorMsg = exception.message
-                            ),
-                        )
+                        Resource.NetworkDisconnected()
                     )
                 }
             }

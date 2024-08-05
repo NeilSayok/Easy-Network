@@ -18,15 +18,7 @@ fun <T> ExceptionHandlerFlow(
         if (exception is UnknownHostException) {
 
             flows.forEach { flow ->
-                flow.apply {
-                    emit(Resource.Error(
-                        message = "No Internet Connection",
-                        errorData = ErrorData(
-                            code = null,
-                            errorMsg = exception.message
-                        ),
-                        )
-                    )
+                flow.apply { emit(Resource.NetworkDisconnected())
                 }
             }
         }
