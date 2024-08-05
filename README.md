@@ -32,12 +32,21 @@ maven { url = uri("https://jitpack.io") }
 
 For Gradle Groovy DSL:
 ```gradle
-implementation 'com.github.NeilSayok:Easy-Network:$version_number'
+ext {
+    version_number = '1.0.1'
+}
+
+dependencies {
+    implementation "com.github.NeilSayok:Easy-Network:${version_number}"
+}
 ```
 
 For Gradle Kotlin DSL:
 ```gradle.kts
-implementation( "com.github.NeilSayok:Easy-Network:$version_number")
+dependencies {
+    val version_number = "1.0.1"
+    implementation( "com.github.NeilSayok:Easy-Network:$version_number")
+}
 ```
 
 Usage:
